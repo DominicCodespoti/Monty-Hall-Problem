@@ -10,7 +10,7 @@ public class GameShow {
   public GameShow() {
     Random randomNumberGenerator = new Random();
     for (int doorIterator = 0; doorIterator < 3; doorIterator++) {
-      possibleDoors[doorIterator] = new Door(doorIterator + 1);
+      possibleDoors[doorIterator] = new Door();
     }
     int randomNumberHolder = (randomNumberGenerator.nextInt(3));
     possibleDoors[randomNumberHolder].setPrize(true);
@@ -23,7 +23,7 @@ public class GameShow {
   public void swapDoors() {
     int doorNumber = 0;
     for (int i = 0; i < 3; i++) {
-      if (!getPossibleDoors()[i].getIsDoorOpen()) {
+      if (!getPossibleDoors()[i].getIsDoorOpen() && !getPossibleDoors()[i].getIsDoorSelected()) {
         doorNumber = i;
       }
     }

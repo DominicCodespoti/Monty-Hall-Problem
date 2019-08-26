@@ -42,6 +42,15 @@ public class GameShowTests {
   }
 
   @Test
+  public void swapDoorsDoesNotSwapToSameDoor() {
+    GameShow testGame = new GameShow();
+    testGame.getPossibleDoors()[2].setDoorSelected(true);
+    testGame.openDoor();
+    testGame.swapDoors();
+    Assert.assertFalse(testGame.getPossibleDoors()[2].getIsDoorSelected());
+  }
+
+  @Test
   public void simulateOneThousandGames() {
     simulateFiveHundredStays();
     simulateFiveHundredSwaps();
